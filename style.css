@@ -1,0 +1,260 @@
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+  /**
+     * colors
+     */
+  --dark-color: #111;
+  /**
+     * typography
+    */
+  --ff-manrope: "Manrope", sans-serif;
+  --ff-outfit: "Outfit", sans-serif;
+  --ff-ubuntu: "Ubuntu Sans Mono", monospace;
+  /**
+     * spacing
+     */
+  --section-padding: 90px;
+  /**
+     * box shadow
+     */
+  --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+  --shadow-2: 0 4px 28px hsla(216, 14%, 14%, 0.07);
+  /**
+     * border radius
+     */
+  --radius-circle: 50%;
+  --radius-pill: 100px;
+  --radius-8: 8px;
+  --radius-6: 6px;
+  /**
+     * transition
+     */
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --transition-3: 0.3s ease-in-out;
+}
+
+/*-----------------------------------*\
+    #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+img,
+span,
+button,
+ion-icon {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: var(--ff-manrope);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f1f1f1;
+  color: var(--black-coral);
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+/* body.nav-active {
+    overflow: hidden;
+} */
+
+/*-----------------------------------*\
+    #REUSED STYLE
+\*-----------------------------------*/
+
+.container {
+  padding-inline: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 20vw auto;
+  min-height: 100vh;
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem 1rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.px-2 {
+  padding: 0 2rem;
+}
+
+/*-----------------------------------*\
+  Left-col
+\*-----------------------------------*/
+
+/* Header */
+
+.header {
+  padding: 2rem 0;
+  position: fixed;
+  width: 20vw;
+}
+
+.header .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .logo {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.navbar-item {
+  margin: 2rem 0;
+}
+
+.navbar-link {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-link::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: 500ms ease-in-out opacity;
+}
+
+.navbar-link:hover::after {
+  opacity: 1;
+}
+
+.navbar-link.active {
+  border-bottom: 2px solid #000;
+}
+
+.social-list {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.social-link {
+  transition: 500ms transform ease-in-out;
+}
+
+.social-link:hover {
+  transform: translateY(-6px);
+}
+
+/*-----------------------------------*\
+   Right-col
+\*-----------------------------------*/
+
+.right-col {
+  background: #fff;
+  grid-column-start: 2;
+}
+
+.cover-image {
+  height: 100vh;
+  width: 100%;
+}
+
+/* About */
+
+.about-content-text {
+  line-height: 2.2;
+}
+
+/* Work */
+
+/*-----------------------------------*\
+   Responive
+\*-----------------------------------*/
+
+@media (max-width: 899px) {
+  /* Header */
+  .header {
+    position: relative;
+    width: auto;
+  }
+  /* Layout */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  .grid-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem 1rem;
+  }
+  .grid-box .cover-image-wrapper:nth-child(2) {
+    display: none;
+  }
+  .grid-box .cover-image-wrapper:nth-child(3) {
+    display: none;
+  }
+  /* */
+  .right-col {
+    grid-column: auto;
+  }
+}
